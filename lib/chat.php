@@ -1,8 +1,5 @@
 <?php
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
-
-
-	
 	
 	function printing_out($link) {
 	    

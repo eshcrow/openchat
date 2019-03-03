@@ -2,7 +2,7 @@
 
 class connect {
 	
-	
+	public $link;
 	protected $host = 'localhost';
 	protected $user = 'root';
 	protected $password = '123';
@@ -19,8 +19,6 @@ protected function mysqld () {
 			  
 		}
 	}
-
-
 
 $res = new connect();
 $res->mysql();

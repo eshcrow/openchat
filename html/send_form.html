@@ -1,0 +1,7 @@
+ 	<form  method="get"  onkeypress="if(event.keyCode == 13) return false;">
+		имя<br/>
+		<input type="text" id="userlogin" name="userlogin" size="50%" maxlength="50"><br/>
+		сообщение<br/>
+		<input type="text" id="text" name="text" size="50%" onkeydown="checkKey(event)" maxlength="100"><br/>
+		<input  type="button" value="Отправить сообщение" onclick="loadDoc2()">
+	</form>

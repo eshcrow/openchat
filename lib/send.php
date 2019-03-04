@@ -36,8 +36,8 @@ class Send_messages {
 		{  
 		
 	
-	    $this->login=addslashes($userlogin);
-	    $this->text=addslashes($gettext);
+		$this->login=addslashes($userlogin);
+		$this->text=addslashes($gettext);
 	    $param_1=$this->login;
 	    $param_2=$this->text;
 	    
@@ -46,22 +46,22 @@ class Send_messages {
 	
 	    	  }
 		    }
-	 return $this->send;   
+		 return $this->send;   
 		 }
 		 
 
 		 
 }
 //Коннект к базе
-$connection = new Connect();
-$connection->mysql();
-
+$connection_to = new Connect();
+$connection_to->mysql();
+$connection_to->link->set_charset("utf8");
 
 /*Отправим сообщения*/
 $send_messages = new Send_messages();
-$send_messages->CheckTextInput($connection->link, $gettext, $userlogin);
-/*Удалим лишние*/
+$send_messages->CheckTextInput($connection_to->link, $gettext, $userlogin);
 
+/*Удалим лишние*/
 require_once 'delete_messages.php';
 	
 		

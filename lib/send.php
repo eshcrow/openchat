@@ -1,11 +1,12 @@
 <?php
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
+
 //Дополнительно закрываем сраницу
 	if($_SERVER['REQUEST_URI'] == '/lib/send.php') header("Location: ../index.php");;	
 
         /*Текст и имя из формы*/
-		$gettext=strip_tags($_GET['text']);
-		$userlogin=$_GET['userlogin'];
+	$gettext=strip_tags($_GET['text']);
+	$userlogin=$_GET['userlogin'];
 		
 		
 class Send_messages {    		
@@ -49,8 +50,8 @@ $result->link->set_charset("utf8");
 /*Отправим сообщения*/
 $send_messages = new Send_messages();
 $send_messages->CheckTextInput($result->link, $gettext, $userlogin);
-/*Удалим лишние*/
 
+/*Удалим лишние*/
 require_once 'delete_messages.php';
 	
 		

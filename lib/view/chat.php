@@ -2,7 +2,7 @@
 //Дополнительно закрываем сраницу
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
 
-class printing {
+class Printing {
     
     protected $fetch;
 	
@@ -32,7 +32,7 @@ class printing {
     $result->mysql();
     $result->link->set_charset("utf8");
     //Вывод
-    $data = new printing();
+    $data = new Printing();
     $data-> printingOut($data->fetchingOut($result->link));
 
 

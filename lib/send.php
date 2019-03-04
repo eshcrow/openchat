@@ -25,7 +25,7 @@ require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
 		 }
 
 		 }
-		
+$link=$result->link;		
 		check_text_input($link, $gettext, $userlogin);
 require_once 'delete_messages.php';
 		delete_messages ($link, $count_all_messages);	

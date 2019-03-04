@@ -27,6 +27,11 @@ class printing {
 	 
 }	
    
+    //Коннект к базе
+    $result = new connect();
+    $result->mysql();
+    $result->link->set_charset("utf8");
+    //Вывод
     $data = new printing();
     $data-> printing_out($data->fetching_out($result->link));
 

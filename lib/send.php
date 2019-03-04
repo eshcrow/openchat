@@ -41,6 +41,11 @@ class send_messages {
 
 		 
 }
+//Коннект к базе
+$result = new connect();
+$result->mysql();
+$result->link->set_charset("utf8");
+
 /*Отправим сообщения*/
 $send_messages = new send_messages();
 $send_messages->check_text_input($result->link, $gettext, $userlogin);

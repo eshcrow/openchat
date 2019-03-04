@@ -19,7 +19,7 @@ class Printing {
 	 
 	 function printingOut($data) { 
 
-	 //*Выводим в цикле*/
+	 /*Выводим в цикле*/
 	 while($val = mysqli_fetch_array($data)) 
 	 echo '<strong>' . $val['login'] . ' </strong> ' . $val['text'] . '<br/>';
 
@@ -27,14 +27,13 @@ class Printing {
 	 
 }	
    
-    //Коннект к базе
-    $result = new Connect();
-    $result->mysql();
-    $result->link->set_charset("utf8");
-    //Вывод
-    $data = new Printing();
-    $data-> printingOut($data->fetchingOut($result->link));
-
-
+//Коннект к базе
+$connection_to = new Connect();
+$connection_to->mysql();
+$connection_to->link->set_charset("utf8");
+   
+//Вывод
+$data = new Printing();
+$data-> printingOut($data->fetchingOut($connection_to->link));
     
 ?>

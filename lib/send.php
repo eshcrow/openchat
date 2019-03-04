@@ -8,14 +8,14 @@ require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
 		$userlogin=$_GET['userlogin'];
 		
 		
-class send_messages {    		
+class Send_messages {    		
 
 
     protected $send;
     protected $chat="chat";
 
     
-	function check_text_input($link, $gettext, $userlogin) {
+	function checkTextInput($link, $gettext, $userlogin) {
 		
 		/*Проверим ввод текста*/
 		if(isset($gettext) && $gettext !='' ) 
@@ -42,13 +42,13 @@ class send_messages {
 		 
 }
 //Коннект к базе
-$result = new connect();
+$result = new Connect();
 $result->mysql();
 $result->link->set_charset("utf8");
 
 /*Отправим сообщения*/
-$send_messages = new send_messages();
-$send_messages->check_text_input($result->link, $gettext, $userlogin);
+$send_messages = new Send_messages();
+$send_messages->CheckTextInput($result->link, $gettext, $userlogin);
 /*Удалим лишние*/
 
 require_once 'delete_messages.php';

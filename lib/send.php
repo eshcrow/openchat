@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
-
+//Дополнительно закрываем сраницу
+	if($_SERVER['REQUEST_URI'] == '/lib/send.php') header("Location: ../index.php");;	
 
         /*Текст и имя из формы*/
 		$gettext=strip_tags($_GET['text']);
@@ -32,13 +33,10 @@ class send_messages {
 		/*Запишем в чат */	
 		$this->send=mysqli_query($link, "INSERT INTO ". $this->chat ." (id, login, text) values (NULL, '$userlogin', '$gettext')") or exit ('Не получилось...');
 	
-	    	}
-		   
-		}
-		
-		return $this->send;   
-		
-		}
+	    	  }
+		    }
+		 return $this->send;   
+		 }
 		 
 
 		 

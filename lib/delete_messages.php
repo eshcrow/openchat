@@ -1,6 +1,8 @@
 <?php
 //Дополнительно закрываем сраницу
 	if($_SERVER['REQUEST_URI'] == '/lib/delete_messages.php') header("Location: ../index.php");
+
+
     class Count_delete_messages {
 	    
 	    protected $del;

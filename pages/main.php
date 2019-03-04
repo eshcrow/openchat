@@ -2,9 +2,13 @@
 //Файл коннекта
 require_once CONF.'config.php';	
 require_once STYLE.'header.html';
+
+$result = new Connect();
+$result->mysql();
+$result->link->set_charset("utf8");
 ?>
 		
-		
+
 		
 	<div id="updatebox"  style="overflow: auto; width: 100%; height: 150px;" > 
 
@@ -23,6 +27,6 @@ require_once LIBJS.'scroll_to_bottom.js';
 require_once LIBJS.'cross_object.js';
 require_once HTML.'send_form.html';
 require_once LIBJS.'send.js';
-require_once LIB.'delete_messages.php';	       
+require_once LIB.'delete_messages.php';	
 require_once STYLE.'footer.html';
 ?>

@@ -7,7 +7,7 @@
 	    protected $chat='chat';
 	   
 	/*Количество всех сообщений*/
-	    function countMessages ($link) {
+	 function countMessages ($link) {
 
 	    return mysqli_fetch_array(mysqli_query($link,  "SELECT COUNT(*) FROM ". $this->chat .""));
 

@@ -2,10 +2,10 @@
 //Файл коннекта
 require_once CONF.'config.php';	
 require_once STYLE.'header.html';
-
-$result = new Connect();
-$result->mysql();
-$result->link->set_charset("utf8");
+//Соединение с базой
+$connection_to = new Connect();
+$connection_to->mysql();
+$connection_to->link->set_charset("utf8");
 ?>
 		
 

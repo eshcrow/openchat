@@ -12,7 +12,6 @@ class Send_messages {
 
 
     protected $send;
-    protected $chat="chat";
     protected $login;
     protected $text;
     
@@ -29,32 +28,34 @@ class Send_messages {
 		
 		if(!preg_match('/^[a-zа-яё0-9\.\,\!\?\;\#\&\/\)\(\-\+\=:\s]+$/ui', $gettext)) 
 		{		
-		
-		$this->send=$link->query("INSERT INTO ". $this->chat ." (id, login, text) values (NULL, 'Чат', 'Запрещенный символ!')");
+		$this->send=$link->query("INSERT INTO chat (id, login, text) values (NULL, 'Чат', 'Запрещенный символ!')");
 
 		} 
 		else 
 		{  
 		
 	
-		$this->login=addslashes($userlogin);
-		$this->text=addslashes($gettext);
-	    	$param_1=$this->login;
-	    	$param_2=$this->text;
+	$this->login=addslashes($userlogin);
+	$this->text=addslashes($gettext);
+
 	    
 		/*Запишем в чат */	
-		$this->send=$link->query("INSERT INTO ". $this->chat ." (id, login, text) values (NULL,  '$param_1', '$param_2')") or exit (' :( ');
+	$stmt=$this->send=$link->prepare("INSERT INTO chat (login, text) values (?, ?)") or exit (' :( ');
+	$stmt->bind_param('ss', $login, $text);
+        $login = $this->login;
+        $text = $this->text;
+        $stmt->execute();
+        
 	
 	    	  }
-		}
+		    }
 		 return $this->send;   
 		 }
 		 
 
 		 
 }
-
-/*Коннект к базе*/
+//Коннект к базе
 $connection_to = new Connect();
 $connection_to->mysql();
 $connection_to->link->set_charset("utf8");
@@ -62,8 +63,8 @@ $connection_to->link->set_charset("utf8");
 /*Отправим сообщения*/
 $send_messages = new Send_messages();
 $send_messages->CheckTextInput($connection_to->link, $gettext, $userlogin);
-
 /*Удалим лишние*/
+
 require_once 'delete_messages.php';
 	
 		

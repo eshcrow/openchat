@@ -32,7 +32,7 @@
 $count_delete_object = new	Count_delete_messages();
 //запрашиваем все сообщения
 $count_all_messages=$count_delete_object->countMessages($result->link);
-
+//Удалим
 $count_delete_object->deleteMessages($result->link, $count_all_messages[0]);
 
 

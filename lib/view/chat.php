@@ -8,7 +8,7 @@ class printing {
 	
 	
 	 /*Запрашиваем последние 15 сообщений*/
-	    function fetchingOut($link) { 
+	  function fetchingOut($link) { 
 	 
 	 $this->fetch = $link->query("SELECT * from chat ORDER by id ASC LIMIT 15");
 	 return $this->fetch;
@@ -17,11 +17,11 @@ class printing {
 	    }
 	 
 	 
-	 	    function printingOut($data) { 
+	 function printingOut($data) { 
 
-	 	//*Выводим в цикле*/
-	 	while($val = mysqli_fetch_array($data)) 
-		echo '<strong>' . $val['login'] . ' </strong> ' . $val['text'] . '<br/>';
+	 //*Выводим в цикле*/
+	 while($val = mysqli_fetch_array($data)) 
+	 echo '<strong>' . $val['login'] . ' </strong> ' . $val['text'] . '<br/>';
 
 	 }
 	 

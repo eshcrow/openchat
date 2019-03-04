@@ -29,6 +29,7 @@ class Send_messages {
 		
 		if(!preg_match('/^[a-zа-яё0-9\.\,\!\?\;\#\&\/\)\(\-\+\=:\s]+$/ui', $gettext)) 
 		{		
+		
 		$this->send=$link->query("INSERT INTO ". $this->chat ." (id, login, text) values (NULL, 'Чат', 'Запрещенный символ!')");
 
 		} 
@@ -38,21 +39,22 @@ class Send_messages {
 	
 		$this->login=addslashes($userlogin);
 		$this->text=addslashes($gettext);
-	    $param_1=$this->login;
-	    $param_2=$this->text;
+	    	$param_1=$this->login;
+	    	$param_2=$this->text;
 	    
 		/*Запишем в чат */	
 		$this->send=$link->query("INSERT INTO ". $this->chat ." (id, login, text) values (NULL,  '$param_1', '$param_2')") or exit (' :( ');
 	
 	    	  }
-		    }
+		}
 		 return $this->send;   
 		 }
 		 
 
 		 
 }
-//Коннект к базе
+
+/*Коннект к базе*/
 $connection_to = new Connect();
 $connection_to->mysql();
 $connection_to->link->set_charset("utf8");

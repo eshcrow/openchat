@@ -1,8 +1,6 @@
 <?php
 //Дополнительно закрываем сраницу
 	if($_SERVER['REQUEST_URI'] == '/lib/delete_messages.php') header("Location: ../index.php");
-
-
     class Count_delete_messages {
 	    
 	    protected $del;
@@ -11,7 +9,8 @@
 	/*Количество всех сообщений*/
 	 function countMessages ($link) {
 
-	    return mysqli_fetch_array(mysqli_query($link,  "SELECT COUNT(*) FROM ". $this->chat .""));
+	
+		 return mysqli_fetch_array(mysqli_query($link,  "SELECT COUNT(*) FROM ". $this->chat .""));
 
 		
 	    }
@@ -22,8 +21,8 @@
 	
 		if ($count_all_messages > 15 )
 		{ 
-    	$this->del=mysqli_query($link, "DELETE FROM ". $this->chat ."	 ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
-        return $this->del;
+    		$this->del=$link->query("DELETE FROM ". $this->chat ."	 ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
+        	return $this->del;
 		}
 	}
 	
@@ -31,9 +30,9 @@
 
 
 $count_delete_object = new	Count_delete_messages();
-//Запрашиваем все сообщения
+//запрашиваем все сообщения
 $count_all_messages=$count_delete_object->countMessages($result->link);
-//Удаляем
+
 $count_delete_object->deleteMessages($result->link, $count_all_messages[0]);
 
 

@@ -4,8 +4,8 @@ require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
 	if($_SERVER['REQUEST_URI'] == '/lib/send.php') header("Location: ../index.php");;	
 
         /*Текст и имя из формы*/
-		$gettext=strip_tags($_GET['text']);
-		$userlogin=$_GET['userlogin'];
+		$gettext=addslashes($_GET['text']);
+		$userlogin=addslashes($_GET['userlogin']);
 		
 		
 class Send_messages {    		

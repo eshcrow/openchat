@@ -3,9 +3,9 @@ class connect {
 	
 	public $link;
 	protected $host = 'localhost';
-	protected $user = 'u0643076_sneg';
-	protected $password = 'Zfrae4pN+vlF';
-	protected $db_name = 'u0643076_sneg';
+	protected $user = 'root';
+	protected $password = '123';
+	protected $db_name = 'chat';
 	
 protected function mysqld () {
 	

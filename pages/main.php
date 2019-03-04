@@ -23,11 +23,6 @@ require_once LIBJS.'scroll_to_bottom.js';
 require_once LIBJS.'cross_object.js';
 require_once HTML.'send_form.html';
 require_once LIBJS.'send.js';
-require_once LIB.'delete_messages.php';	
-    
-        /*Удалим лишние сообщения*/
-        
-    
-        
+require_once LIB.'delete_messages.php';	       
 require_once STYLE.'footer.html';
 ?>

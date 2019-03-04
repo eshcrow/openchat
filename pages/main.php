@@ -12,7 +12,7 @@ require_once STYLE.'header.html';
 		
 <?php
 //Файл с сообщениями чата, 15 сообщ. каждые 3 сек
-require_once LIB.'chat.php';	
+require_once LIB.'/view/chat.php';	
 ?>
 	
 	

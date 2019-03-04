@@ -2,7 +2,7 @@
 //Перенаправим при попытке вызвать из браузера
 if($_SERVER['REQUEST_URI'] == '/conf/config.php') header("Location: ../index.php");
 
-class connect {
+class Connect {
 	
 	public $link;
 	protected $host = 'localhost';

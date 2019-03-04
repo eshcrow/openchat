@@ -20,7 +20,7 @@ class send_messages {
 		
 		if(!preg_match('/^[a-zа-яё0-9\.\,\!\?\;\#\&\/\)\(\-\+\=:\s]+$/ui', $gettext)) 
 		{		
-			mysqli_query($link, "INSERT INTO chat (id, login, text) values (NULL, '$userlogin', 'Запрещенный символ!')");
+		$this->send=mysqli_query($link, "INSERT INTO chat (id, login, text) values (NULL, '$userlogin', 'Запрещенный символ!')");
 
 		} 
 		else 

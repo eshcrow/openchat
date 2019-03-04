@@ -7,10 +7,9 @@
 	    protected $chat='chat';
 	   
 	/*Количество всех сообщений*/
-	 function countMessages ($link) {
+	    function countMessages ($link) {
 
-	
-		 return mysqli_fetch_array(mysqli_query($link,  "SELECT COUNT(*) FROM ". $this->chat .""));
+	    return mysqli_fetch_array(mysqli_query($link,  "SELECT COUNT(*) FROM ". $this->chat .""));
 
 		
 	    }
@@ -21,8 +20,8 @@
 	
 		if ($count_all_messages > 15 )
 		{ 
-    		$this->del=$link->query("DELETE FROM ". $this->chat ."	 ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
-        	return $this->del;
+    	$this->del=$link->query("DELETE FROM ". $this->chat ."	 ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
+        return $this->del;
 		}
 	}
 	
@@ -31,9 +30,9 @@
 
 $count_delete_object = new	Count_delete_messages();
 //запрашиваем все сообщения
-$count_all_messages=$count_delete_object->countMessages($result->link);
+$count_all_messages=$count_delete_object->countMessages($connection_to->link);
 //Удалим
-$count_delete_object->deleteMessages($result->link, $count_all_messages[0]);
+$count_delete_object->deleteMessages($connection_to->link, $count_all_messages[0]);
 
 
 ?>

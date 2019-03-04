@@ -1,4 +1,5 @@
 <?php
+//Дополнительно закрываем сраницу
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/conf/config.php';
 
 class printing {

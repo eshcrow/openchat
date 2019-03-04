@@ -16,10 +16,12 @@ class send_messages {
 		/*Проверим ввод текста*/
 		if(isset($gettext) && $gettext !='' ) 
 		{	
-			$gettext = substr($gettext, 0,300);
+		
+		$gettext = substr($gettext, 0,300);
 		
 		if(!preg_match('/^[a-zа-яё0-9\.\,\!\?\;\#\&\/\)\(\-\+\=:\s]+$/ui', $gettext)) 
-		{		
+		{
+			
 		$this->send=mysqli_query($link, "INSERT INTO chat (id, login, text) values (NULL, '$userlogin', 'Запрещенный символ!')");
 
 		} 
@@ -29,7 +31,7 @@ class send_messages {
 		/*Запишем в чат */	
 		$this->send=mysqli_query($link, "INSERT INTO chat (id, login, text) values (NULL, '$userlogin', '$gettext')") or exit ('Не получилось...');
 	
-	    	  }
+	    	  	}
 		    }
 		 return $this->send;   
 		 }

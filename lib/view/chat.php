@@ -17,11 +17,11 @@ class printing {
 	    }
 	 
 	 
-	 	    function printingOut($data) { 
+	    function printingOut($data) { 
 
-	 	//*Выводим в цикле*/
-	 	while($val = mysqli_fetch_array($data)) 
-		echo '<strong>' . $val['login'] . ' </strong> ' . $val['text'] . '<br/>';
+	 //*Выводим в цикле*/
+	while($val = mysqli_fetch_array($data)) 
+	echo '<strong>' . $val['login'] . ' </strong> ' . $val['text'] . '<br/>';
 
 	 }
 	 

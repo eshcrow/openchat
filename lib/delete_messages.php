@@ -1,5 +1,6 @@
 <?php
-
+//Дополнительно закрываем сраницу
+	if($_SERVER['REQUEST_URI'] == '/lib/delete_messages.php') header("Location: ../index.php");
     class count_delete_messages {
 	    
 	    protected $del;
@@ -30,7 +31,7 @@
 $count_delete_object = new	count_delete_messages();
 //запрашиваем все сообщения
 $count_all_messages=$count_delete_object->count_messages($result->link);
-
+//Удалим
 $count_delete_object->delete_messages($result->link, $count_all_messages[0]);
 
 

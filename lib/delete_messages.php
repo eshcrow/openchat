@@ -2,6 +2,7 @@
 
     class count_delete_messages {
 	    
+	    protected $del;
 	   
 	/*Количество всех сообщений*/
 	    function count_messages ($link) {
@@ -16,8 +17,8 @@
 	function delete_messages ($link, $count_all_messages) {
 		if ($count_all_messages > 15 )
 		{ 
-    	mysqli_query($link, "DELETE FROM chat	 ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
-
+    	$this->del=mysqli_query($link, "DELETE FROM chat ORDER BY id ASC LIMIT 1  ") or exit ('not ok');
+        return $this->del;
 		}
 		 
 	}
@@ -26,7 +27,7 @@
 $count_delete_object = new	count_delete_messages();
 //запрашиваем все сообщения
 $count_all_messages=$count_delete_object->count_messages($result->link);
-//Удалим лишние
+//удалим
 $count_delete_object->delete_messages($result->link, $count_all_messages[0]);
 
 

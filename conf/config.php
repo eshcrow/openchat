@@ -18,8 +18,5 @@ protected function mysqld () {
 			  
 		}
 	}
-$result = new connect();
-$result->mysql();
-$result->link->set_charset("utf8");
 
 ?>

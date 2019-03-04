@@ -1,4 +1,7 @@
 <?php
+//Перенаправим при попытке вызвать из браузера
+if($_SERVER['REQUEST_URI'] == '/conf/config.php') header("Location: ../index.php");
+
 class connect {
 	
 	public $link;

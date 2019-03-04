@@ -27,7 +27,7 @@ require_once LIB.'delete_messages.php';
     
         /*Удалим лишние сообщения*/
         
-       delete_messages ($link, $count_all_messages);
+       delete_messages ($result->link, $count_all_messages);
         
 require_once STYLE.'footer.html';
 ?>

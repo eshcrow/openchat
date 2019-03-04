@@ -6,7 +6,7 @@ class printing {
 	 /*Запрашиваем последние 15 сообщений*/
 	    function printing_out($link) { 
 	 
-	 return $link->query("SELECT * from chat ORDER by id desc LIMIT 15");
+	 return $link->query("SELECT * from chat ORDER by id ASC LIMIT 15");
 
 	 }
 	 
